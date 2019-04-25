@@ -9,16 +9,19 @@ export default class Map extends React.Component {
 
     this.state = {
       isLoading: true,
-      markers: []
+      markers: [],
+      error: null
     };
   }
   fetchMarkerData() {
-    fetch("https://feeds.citibikenyc.com/stations/stations.json")
+    fetch(
+      "https://atlas-obscura-api.herokuapp.com/api/atlas/attractions/United-States?city=chicago&state=illinois&limit=5"
+    )
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
           isLoading: false,
-          markers: responseJson.stationBeanList
+          markers: responseJson.Attractions
         });
       })
       .catch(error => {
@@ -46,17 +49,17 @@ export default class Map extends React.Component {
           ? null
           : this.state.markers.map((marker, index) => {
               const coords = {
-                latitude: marker.latitude,
-                longitude: marker.longitude
+                latitude: marker.coordinates[0],
+                longitude: marker.coordinates[1]
               };
 
-              const metadata = `Status: ${marker.statusValue}`;
+              const metadata = `Status: ${marker.description}`;
 
               return (
                 <MapView.Marker
                   key={index}
                   coordinate={coords}
-                  title={marker.stationName}
+                  title={marker.name}
                   description={metadata}
                 />
               );
