@@ -9,13 +9,13 @@
       "bundleIdentifier": "com.tourchicago.mapcuny",
       "supportsTablet": true,
       "config": {
-        "googleMapsApiKey": "AIzaSyDQG6o5ihbhjrrwbmf9muVbtSpDMzVAWgg"
+        "googleMapsApiKey": ""
       }
     },
     "android": {
       "package": "com.tourchicago.mapcuny",
       "config": {
-        "googleMaps": { "apiKey": "AIzaSyCe6vk1FSzQu-yAaci7rKaZPyaO1MXVvx0" }
+        "googleMaps": { "apiKey": "" }
       }
     },
     "version": "1.0.0",
