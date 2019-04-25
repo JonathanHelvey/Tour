@@ -53,7 +53,7 @@ export default class Map extends React.Component {
                 longitude: marker.coordinates[1]
               };
 
-              const metadata = `Status: ${marker.description}`;
+              const metadata = `Description: ${marker.description}`;
 
               return (
                 <MapView.Marker
