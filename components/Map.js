@@ -18,11 +18,12 @@ export default class Map extends React.Component {
       "https://atlas-obscura-api.herokuapp.com/api/atlas/attractions/United-States?city=chicago&state=illinois&limit=5"
     )
       .then(response => response.json())
-      .then(responseJson => {
+      .then(data => {
         this.setState({
           isLoading: false,
-          markers: responseJson.Attractions
+          markers: data.Attractions
         });
+        console.log(data.Attractions);
       })
       .catch(error => {
         console.log(error);
@@ -53,14 +54,16 @@ export default class Map extends React.Component {
                 longitude: marker.coordinates[1]
               };
 
-              const metadata = `Description: ${marker.description}`;
+              const description = `Description: ${marker.description}`;
 
               return (
                 <MapView.Marker
                   key={index}
                   coordinate={coords}
+                  image={marker.img}
                   title={marker.name}
-                  description={metadata}
+                  description={description}
+                  urlPath={marker.path}
                 />
               );
             })}
