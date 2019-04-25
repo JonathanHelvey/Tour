@@ -5,4 +5,5 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
-.app.json
+app.json
+secerts.js
