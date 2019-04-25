@@ -49,9 +49,11 @@ export default class App extends React.Component {
           <Map region={region} />
           <Button
             onPress={() => {
-              Alert.alert("You tapped the button!");
+              Alert.alert(
+                "Welcome to TOUR CHICAGO! Pick an Attraction and EXPLORE!!!"
+              );
             }}
-            title="Press Me"
+            title="Get Started"
           />
         </SafeAreaView>
       </View>
