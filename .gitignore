@@ -6,4 +6,4 @@ npm-debug.*
 *.key
 *.mobileprovision
 app.json
-secerts.js
+sercerts.js
