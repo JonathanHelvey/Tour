@@ -8,4 +8,4 @@ npm-debug.*
 app.json
 sercerts.js
 yelp.js
-atlas.js
+google.js

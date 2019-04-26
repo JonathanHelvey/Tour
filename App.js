@@ -8,8 +8,8 @@ import {
   Button,
   Alert
 } from "react-native";
-import Map from "./components/Map";
 import { MapView, Location, Permissions } from "expo";
+import Map from "./components/Map";
 
 const deltas = {
   latitudeDelta: 0.0922,
@@ -19,7 +19,6 @@ const deltas = {
 export default class App extends React.Component {
   state = {
     region: null
-    //museums: []
   };
   componentWillMount() {
     this.getLocationAsync();

@@ -10,12 +10,13 @@ export default class Map extends React.Component {
     this.state = {
       isLoading: true,
       markers: [],
+      //museums: [],
       error: null
     };
   }
   fetchMarkerData() {
     fetch(
-      "https://atlas-obscura-api.herokuapp.com/api/atlas/attractions/United-States?city=chicago&state=illinois&limit=5"
+      "https://atlas-obscura-api.herokuapp.com/api/atlas/attractions/United-States?city=chicago&state=illinois&limit=1000"
     )
       .then(response => response.json())
       .then(data => {
