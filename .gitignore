@@ -7,3 +7,5 @@ npm-debug.*
 *.mobileprovision
 app.json
 sercerts.js
+yelp.js
+atlas.js

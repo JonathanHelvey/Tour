@@ -23,7 +23,6 @@ export default class Map extends React.Component {
           isLoading: false,
           markers: data.Attractions
         });
-        console.log(data.Attractions);
       })
       .catch(error => {
         console.log(error);

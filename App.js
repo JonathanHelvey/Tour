@@ -19,7 +19,7 @@ const deltas = {
 export default class App extends React.Component {
   state = {
     region: null
-    //coffeeShops: []
+    //museums: []
   };
   componentWillMount() {
     this.getLocationAsync();
