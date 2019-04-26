@@ -1,7 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
 //import Map from "./components/Map";
-import { MapView } from "expo";
+import { MapView, Location, Permissions } from "expo";
+
+const deltas = {
+  latitudeDelta: 0.0922,
+  longitudeDelta: 0.0421
+};
 
 export default class Map extends React.Component {
   constructor(props) {
@@ -10,36 +15,62 @@ export default class Map extends React.Component {
     this.state = {
       isLoading: true,
       markers: [],
-      //museums: [],
+      region: null,
       error: null
     };
   }
+  componentDidMount() {
+    this.fetchMarkerData();
+    this.getLocation();
+    setTimeout(() => this.setState({ flex: 1 }), 100);
+  }
   fetchMarkerData() {
     fetch(
-      "https://atlas-obscura-api.herokuapp.com/api/atlas/attractions/United-States?city=chicago&state=illinois&limit=1000"
+      "https://atlas-obscura-api.herokuapp.com/api/atlas/attractions/United-States?city=chicago&state=illinois&limit=auto"
     )
       .then(response => response.json())
       .then(data => {
         this.setState({
           isLoading: false,
-          markers: data.Attractions
+          markers: data.Attractions,
+          region: data.region
         });
       })
       .catch(error => {
         console.log(error);
       });
   }
-  componentDidMount() {
-    this.fetchMarkerData();
-  }
+
+  getLocation = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      this.setState({
+        errorMessage: "Permission to access location was denied"
+      });
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    const region = {
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+      ...deltas
+    };
+    await this.setState({ region });
+  };
+
   render() {
+    const { region, markers } = this.state;
     return (
       <MapView
         style={{
-          flex: 1
+          flex: this.state.flex,
+          margin: 1,
+          padding: 1
         }}
-        showsUserLocation
         showsMyLocationButton
+        showsUserLocation
+        region={region}
+        marker={markers}
         initialRegion={{
           latitude: 41.8781,
           longitude: -87.6298,
