@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  SafeAreaView,
-  Button,
-  Alert
-} from "react-native";
-import Map from "./components/Map";
-//import AppNavigator from "./navigation/AppNavigator";
-
-export default class App extends React.Component {
+import { StyleSheet, Text, View } from "react-native";
+import Map from "../components/Map";
+export default class Friends extends React.Component {
   render() {
     return (
       <View>
@@ -30,9 +20,12 @@ export default class App extends React.Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    width: "100%"
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

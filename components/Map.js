@@ -15,6 +15,7 @@ export default class Map extends React.Component {
     this.state = {
       isLoading: true,
       markers: [],
+      markers2: [],
       region: null,
       error: null
     };
@@ -35,6 +36,22 @@ export default class Map extends React.Component {
           markers: data.Attractions,
           region: data.region
         });
+        console.log(`YES YES YES`);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    fetch(
+      "https://atlas-obscura-api.herokuapp.com/api/gastro/places?limit=auto"
+    )
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          isLoading: false,
+          markers2: data[`Gastro-Places`],
+          region: data.region
+        });
+        console.log(`IS THIS RUNNING`);
       })
       .catch(error => {
         console.log(error);
@@ -86,7 +103,7 @@ export default class Map extends React.Component {
               };
 
               const description = `Description: ${marker.description}`;
-
+              const image = marker.img;
               return (
                 <MapView.Marker
                   key={index}
