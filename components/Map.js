@@ -36,7 +36,6 @@ export default class Map extends React.Component {
           markers: data.Attractions,
           region: data.region
         });
-        console.log(`YES YES YES`);
       })
       .catch(error => {
         console.log(error);
@@ -51,7 +50,6 @@ export default class Map extends React.Component {
           markers2: data[`Gastro-Places`],
           region: data.region
         });
-        console.log(`IS THIS RUNNING`);
       })
       .catch(error => {
         console.log(error);
