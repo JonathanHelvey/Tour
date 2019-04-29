@@ -23,3 +23,24 @@ export default class SignInScreen extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  searchBar: {
+    flex: 1,
+    margin: 10,
+    padding: 10,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  bigBlue: {
+    alignItems: "center",
+    color: "blue",
+    fontWeight: "bold",
+    fontSize: 20
+  },
+  button: {
+    margin: 5,
+    padding: 5
+  }
+});

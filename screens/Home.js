@@ -5,6 +5,7 @@ import {
   View,
   Button,
   Image,
+  ImageBackground,
   Plateform,
   YellowBox
 } from "react-native";
@@ -20,16 +21,16 @@ import SignInScreen from "./SignInScreen";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "darkseagreen",
     alignItems: "center",
     justifyContent: "center"
   },
   bigBlue: {
     alignItems: "center",
-    color: "blue",
-    backgroundColor: "yellow",
+    color: "white",
     fontWeight: "bold",
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: "Roboto"
   },
   button: {
     margin: 5,
@@ -45,7 +46,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
-          <Image
+          <ImageBackground
             source={require("../assets/images/ChicagoSunset.jpg")}
             style={{ margin: 5, width: 400, height: 300 }}
           />
@@ -53,7 +54,6 @@ class HomeScreen extends React.Component {
           <Button
             title="Map of Chicago"
             onPress={() => {
-              /* 1. Navigate to the Details route with params */
               this.props.navigation.navigate("Map", {
                 itemId: 86,
                 otherParam: "anything you want here"
@@ -89,19 +89,11 @@ const HomeStack = createStackNavigator(
       headerTitleStyle: {
         fontWeight: "bold"
       },
-      headerLeft: (
-        <Button
-          style={styles.button}
-          onPress={() => alert("NO sign in yet!")}
-          title="Sign In"
-          color="blue"
-        />
-      ),
       headerRight: (
         <Button
           style={styles.button}
-          onPress={() => alert("Welcome to Tour Chicago!")}
-          title="Info"
+          onPress={() => alert("Sign In!")}
+          title="Sign IN"
           color="dodgerblue"
         />
       )

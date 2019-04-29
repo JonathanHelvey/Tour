@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
 //import Map from "./components/Map";
-import { MapView, Location, Permissions } from "expo";
+import { MapView, Location, Permissions, PROVIDER_GOOGLE } from "expo";
 
 const deltas = {
   latitudeDelta: 0.0922,
@@ -40,20 +40,20 @@ export default class Map extends React.Component {
       .catch(error => {
         console.log(error);
       });
-    fetch(
-      "https://atlas-obscura-api.herokuapp.com/api/gastro/places?limit=auto"
-    )
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          isLoading: false,
-          markers2: data[`Gastro-Places`],
-          region: data.region
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    // fetch(
+    //   "https://atlas-obscura-api.herokuapp.com/api/gastro/places?limit=auto"
+    // )
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.setState({
+    //       isLoading: false,
+    //       markers2: data[`Gastro-Places`],
+    //       region: data.region
+    //     });
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }
 
   getLocation = async () => {

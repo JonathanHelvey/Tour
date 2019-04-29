@@ -16,12 +16,11 @@ export default class WhatsHot extends React.Component {
   };
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          margin: 1,
-          padding: 1
-        }}>
+      <View style={styles.container}>
+        <Image
+          source={require("../assets/images/chicagoTrain.jpg")}
+          style={{ margin: 5, width: 400, height: 300 }}
+        />
         <Button
           style={styles.container}
           title="Take Me Home"
@@ -34,7 +33,21 @@ export default class WhatsHot extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    width: "100%"
+    flex: 1,
+    margin: 10,
+    padding: 10,
+    backgroundColor: "darkseagreen",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  bigBlue: {
+    alignItems: "center",
+    color: "blue",
+    fontWeight: "bold",
+    fontSize: 20
+  },
+  button: {
+    margin: 5,
+    padding: 5
   }
 });
