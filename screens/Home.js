@@ -8,18 +8,46 @@ import {
   Plateform,
   YellowBox
 } from "react-native";
-import Map from "../components/Map";
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
-import LogIn from "./LogIn";
+import {
+  createBottomTabNavigator,
+  createAppContainer,
+  createStackNavigator
+} from "react-navigation";
+import WhatsHot from "./WhatsHot";
+import MapScreen from "./MapScreen";
+import SignInScreen from "./SignInScreen";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  bigBlue: {
+    alignItems: "center",
+    color: "blue",
+    backgroundColor: "yellow",
+    fontWeight: "bold",
+    fontSize: 20
+  },
+  button: {
+    margin: 5,
+    padding: 5
+  }
+});
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    headerTitle: "WELCOME"
+  };
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
           <Image
             source={require("../assets/images/ChicagoSunset.jpg")}
-            style={{ margin: 5, width: 300, height: 200 }}
+            style={{ margin: 5, width: 400, height: 300 }}
           />
           <Text style={styles.bigBlue}>Welcome To TOUR OBSCURA Chicago!</Text>
           <Button
@@ -34,7 +62,7 @@ class HomeScreen extends React.Component {
           />
           <Image
             source={require("../assets/images/bean.jpg")}
-            style={{ margin: 5, width: 300, height: 200 }}
+            style={{ margin: 5, width: 400, height: 300 }}
           />
         </View>
       </View>
@@ -42,45 +70,61 @@ class HomeScreen extends React.Component {
   }
 }
 
-class MapScreen extends React.Component {
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-          margin: 1,
-          padding: 1
-        }}>
-        <Map />
-      </View>
-    );
+const HomeStack = createStackNavigator(
+  {
+    Home: { screen: HomeScreen },
+    Map: { screen: MapScreen },
+    WhatsHot: { screen: WhatsHot },
+    SignInScreen: { screen: SignInScreen }
+  },
+  {
+    initialRouteName: "Home",
+    /* The header config from HomeScreen is now here */
+    defaultNavigationOptions: {
+      headerBackTitle: "TOUR CHICAGO",
+      headerStyle: {
+        backgroundColor: "#f4511e"
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold"
+      },
+      headerLeft: (
+        <Button
+          style={styles.button}
+          onPress={() => alert("NO sign in yet!")}
+          title="Sign In"
+          color="blue"
+        />
+      ),
+      headerRight: (
+        <Button
+          style={styles.button}
+          onPress={() => alert("Welcome to Tour Chicago!")}
+          title="Info"
+          color="dodgerblue"
+        />
+      )
+    }
   }
-}
+);
 
-const TabNavigator = createBottomTabNavigator({
-  Home: {
-    screen: HomeScreen
-  },
-  Map: {
-    screen: MapScreen
-  },
-  LogIn: {
-    screen: LogIn
-  }
-});
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  bigBlue: {
-    alignItems: "center",
-    color: "blue",
-    fontWeight: "bold",
-    fontSize: 20
-  }
+const MapStack = createStackNavigator({
+  Home: { screen: HomeScreen },
+  Map: { screen: MapScreen },
+  WhatsHot: { screen: WhatsHot }
 });
 
-export default createAppContainer(TabNavigator);
+const WhatsHotStack = createStackNavigator({
+  Home: { screen: HomeScreen },
+  Map: { screen: MapScreen },
+  WhatsHot: { screen: WhatsHot }
+});
+
+export default createAppContainer(
+  createBottomTabNavigator({
+    Home: { screen: HomeStack },
+    Map: { screen: MapStack },
+    WhatsHot: { screen: WhatsHotStack }
+  })
+);

@@ -8,8 +8,12 @@ import {
   Plateform,
   YellowBox
 } from "react-native";
+import Home from "./Home";
 
-export default class LogIn extends React.Component {
+export default class WhatsHot extends React.Component {
+  static navigationOptions = {
+    title: "Whats Hot!!!"
+  };
   render() {
     return (
       <View
@@ -19,8 +23,9 @@ export default class LogIn extends React.Component {
           padding: 1
         }}>
         <Button
-          title="LogIN"
-          onPress={() => this.props.navigation.navigate("LogIn")}
+          style={styles.container}
+          title="Take Me Home"
+          onPress={() => this.props.navigation.navigate("Home")}
         />
       </View>
     );
