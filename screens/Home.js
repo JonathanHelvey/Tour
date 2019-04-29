@@ -5,7 +5,6 @@ import {
   View,
   Button,
   Image,
-  ImageBackground,
   Plateform,
   YellowBox
 } from "react-native";
@@ -46,7 +45,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
-          <ImageBackground
+          <Image
             source={require("../assets/images/ChicagoSunset.jpg")}
             style={{ margin: 5, width: 400, height: 300 }}
           />

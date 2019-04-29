@@ -82,6 +82,7 @@ export default class Map extends React.Component {
           margin: 1,
           padding: 1
         }}
+        origin={PROVIDER_GOOGLE}
         showsMyLocationButton
         showsUserLocation
         region={region}
