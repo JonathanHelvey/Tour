@@ -25,6 +25,8 @@ Tour is an app geared towards Chicago Tourist.  Showing User the most obscure pl
 # Built By
 - [Jonathan Helvey](https://github.com/JonathanHelvey)
 # Demo
+<img src="Tour.gif" data-canonical-src="Tour.gif" width="200" height="400" />
+
 - [YouTube Link](https://youtu.be/8CQRHXlow-c | width=100)
 
 ![Tour Demo](Tour.gif)
