@@ -20,7 +20,7 @@ In the project directory, you can run:
 - [Atlas Obscura API](https://atlas-obscura-api.herokuapp.com/)
 
 ## What is Tour?
-Tour is an app geared towards Chicago Tourist.  Showing User the most obscure places to attend while visiting the city of Chicago. 
+Tour is an app geared towards Chicago Tourism.  The application shows users the most obscure places to attend while visiting the city of Chicago. 
 
 # Built By
 - [Jonathan Helvey](https://github.com/JonathanHelvey)
