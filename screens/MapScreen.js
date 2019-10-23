@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import Map from "../components/Map";
 import Home from "./Home";

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
 //import Map from "./components/Map";
 import { MapView, Location, Permissions, PROVIDER_GOOGLE } from "expo";
